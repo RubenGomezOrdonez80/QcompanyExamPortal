@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Take Exam</title>
+</head>
+<body>
+    <h1>Take the Exam</h1>
+    <form action="/results" method="post">
+        {{range .}}
+        <div>
+            <h3>{{.Text}}</h3>
+            {{if .Image}}
+            <img src="/static/img/{{.Image}}" alt="question image">
+            {{end}}
+            {{range $index, $option := .Options}}
+            <label>
+                <input type="checkbox" name="q{{.ID}}_{{$index}}">
+                {{$option}}
+            </label><br>
+            {{end}}
+        </div>
+        {{end}}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

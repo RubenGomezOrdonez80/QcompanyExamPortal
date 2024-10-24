@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Questions</title>
+</head>
+<body>
+    <h1>Manage Questions</h1>
+    <form action="/add-question" method="post">
+        <label>Question Text:</label>
+        <input type="text" name="text"><br>
+        <label>Options:</label><br>
+        <input type="text" name="option"><br>
+        <input type="text" name="option"><br>
+        <input type="text" name="option"><br>
+        <input type="text" name="option"><br>
+        <label>Correct Answers (indexes):</label>
+        <input type="text" name="correct"><br>
+        <label>Image (optional):</label>
+        <input type="text" name="image"><br>
+        <button type="submit">Add Question</button>
+    </form>
+    <h2>Existing Questions:</h2>
+    {{range .}}
+    <p>{{.Text}}</p>
+    {{end}}
+</body>
+</html>
